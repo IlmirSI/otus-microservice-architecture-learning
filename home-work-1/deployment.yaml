@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-home-work-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otus-home-work-1-app
+  template:
+    metadata:
+      labels:
+        app: otus-home-work-1-app
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: otus-home-work-1
+          image: ilmirsadykov/otus-home-work-1:1.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
